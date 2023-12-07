@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const cors=require('cors')
 
-
+app.use(express.static('dist'))
 app.use(express.json())
 
 let notes = [
@@ -49,7 +49,7 @@ app.delete('/api/notes/:id', (req, res) => {
 
 app.post('/api/notes', (request, response) => {
   const note = request.body
-  console.log(note)
+  notes=[...notes,note]
   response.json(note)
 })
 
