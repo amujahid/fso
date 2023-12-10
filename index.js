@@ -44,6 +44,8 @@ app.get('/api/notes/:id', (req, res) => {
 app.delete('/api/notes/:id', (req, res) => {
   const id = Number(req.params.id)
   notes = notes.filter((n) => n.id != id)
+  console.log('backend:');
+  console.log(notes)
   res.status(204).send('deleted')
 })
 
